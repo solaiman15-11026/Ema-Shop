@@ -31,7 +31,16 @@ const Shop = () => {
     //add to cart buttom--------------------------------------
     const [cart, setCart] = useState([])
     const addCart = (product) => {
-        const newCart = [...cart, product]
+        let newCart = [];
+        const selet = cart.find(pro => pro.id === product.id);
+        if (!selet) {
+            product.quantity = 1
+            newCart = [...cart, product]
+        } else {
+            const rest = cart.filter(pro => pro.id !== product.id)
+            selet.quantity = selet.quantity + 1;
+            newCart = [...rest, selet]
+        }
         setCart(newCart);
         addToDb(product.id)
     }
