@@ -38,6 +38,7 @@ const Shop = () => {
             newCart = [...cart, product]
         } else {
             const rest = cart.filter(pro => pro.id !== product.id)
+            console.log(rest)
             selet.quantity = selet.quantity + 1;
             newCart = [...rest, selet]
         }
