@@ -18,7 +18,6 @@ const Shop = () => {
         const saveCart = []
         for (const id in storeCart) {
             const added = shop.find(shoping => shoping.id === id);
-            console.log(added)
             if (added) {
                 const quantity = storeCart[id];
                 added.quantity = quantity;
@@ -38,7 +37,6 @@ const Shop = () => {
             newCart = [...cart, product]
         } else {
             const rest = cart.filter(pro => pro.id !== product.id)
-            console.log(rest)
             selet.quantity = selet.quantity + 1;
             newCart = [...rest, selet]
         }
